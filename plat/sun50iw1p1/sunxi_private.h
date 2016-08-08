@@ -71,10 +71,32 @@ int sunxi_pmic_read(uint8_t address);
 int sunxi_pmic_write(uint8_t address, uint8_t value);
 
 /* Declarations for sunxi_scpi.c */
-static inline uint32_t sunxi_trigger_scpi(uint32_t x1, uint32_t x2,
-					  uint32_t x3, uint32_t x4)
+uint32_t sunxi_trigger_scpi(uint32_t x1, uint32_t x2, uint32_t x3, uint32_t x4);
+
+/* Declarations for sunxi_clocks.c */
+static inline uint32_t sunxi_clock_get_min_rate(int clocknr)
+{
+	return 0;
+}
+static inline uint32_t sunxi_clock_get_max_rate(int clocknr)
+{
+	return 0;
+}
+static inline const char* sunxi_clock_get_name(int clocknr)
+{
+	return NULL;
+}
+static inline uint32_t sunxi_clock_get_rate(int clocknr)
 {
 	return ~0;
+}
+static inline int sunxi_clock_set_rate(int clocknr, uint32_t freq)
+{
+	return -1;
+}
+static inline int sunxi_clock_nr_clocks(void)
+{
+	return 0;
 }
 
 /* Gets the SPSR for BL33 entry */
